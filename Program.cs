@@ -115,22 +115,47 @@
 //}
 
 // 4. Find the reverse of the string.
+//using System;
+//using System.Collections.Generic;
+//using System.Linq;
+//namespace logicals
+//{
+//    class Program
+//    {
+//        public static void Main(string[] args)
+//        {
+//            string str = "Akshay";
+
+//            string reversed = new string(str.Reverse().ToArray());
+
+//            Console.WriteLine(reversed);
+
+
+//        }
+//    }
+//}
+
+// 5. WAP to find missing elements from the array?
 using System;
-using System.Collections.Generic;
 using System.Linq;
+using System.Collections.Generic;
 namespace logicals
 {
     class Program
     {
         public static void Main(string[] args)
         {
-            string str = "Akshay";
-
-            string reversed = new string(str.Reverse().ToArray());
-
-            Console.WriteLine(reversed);
-
-
+            int[] array = { 1, 3, 4, 5, 7, 8, 9, 10 };
+            int min = array.Min();
+            int max = array.Max();
+            var list = new List<int>(array);
+            for (int i = min; i <= max; i++)
+            {
+                if (!list.Contains(i))
+                {
+                    Console.Write(i + " ");
+                }
+            }
         }
     }
 }
