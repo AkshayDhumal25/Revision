@@ -50,6 +50,25 @@
 //}
 
 // 2. Swap Values without using any variable a=10, b=12.
+//using System;
+//namespace logicals
+//{
+//    class Program
+//    {
+//        public static void Main(string[] args)
+//        {
+//            int a = 10;
+//            int b = 12;
+
+//            a = a + b;
+//            b = a - b;
+//            a = a - b;
+//            Console.WriteLine($"A : {a} and B : {b}");
+//        }
+//    }
+//}
+
+// 3. Logic for anagram program with its time complexity. (for large strings).
 using System;
 namespace logicals
 {
@@ -57,13 +76,40 @@ namespace logicals
     {
         public static void Main(string[] args)
         {
-            int a = 10;
-            int b = 12;
+            string str1 = "silent";
+            string str2 = "listem";
+            if (isAnagram(str1, str2))
+            {
+                Console.WriteLine("Anagram");
+            }
+            else
+            {
+                Console.WriteLine("Not Anagram");
+            }
+        }
 
-            a = a + b;
-            b = a - b;
-            a = a - b;
-            Console.WriteLine($"A : {a} and B : {b}");
+        public static bool isAnagram(string str1, string str2)
+        {
+            if (str1.Length != str2.Length)
+            {
+                return false;
+            }
+            int[] array = new int[256];
+            for (int i = 0; i < str1.Length; i++)
+            {
+                array[str1[i]]++;
+                array[str2[i]]--;
+            }
+
+            foreach (var i in array)
+            {
+                if (i != 0)
+                {
+                    return false;
+                }
+            }
+            return true;
+
         }
     }
 }
