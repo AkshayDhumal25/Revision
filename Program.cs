@@ -201,6 +201,31 @@
 
 // 7. WAP to print Fibonacci series with recursion.
 
+//using System;
+//namespace logicals
+//{
+//    class Program
+//    {
+//        public static void Main(string[] args)
+//        {
+//            Console.WriteLine("Enter the number");
+//            int n = Convert.ToInt32(Console.ReadLine());
+//            for (int i = 0; i < n; i++)
+//            {
+//                Console.Write(fibo(i) + " ");
+//            }
+//        }
+
+//        public static int fibo(int n)
+//        {
+//            if (n <= 1) return n;
+//            return fibo(n - 1) + fibo(n - 2);
+//        }
+//    }
+//}
+
+
+// 8. WAP to print Fibonacci series without recursion.
 using System;
 namespace logicals
 {
@@ -208,18 +233,29 @@ namespace logicals
     {
         public static void Main(string[] args)
         {
-            Console.WriteLine("Enter the number");
+            Console.WriteLine("Enter the number of terms : ");
             int n = Convert.ToInt32(Console.ReadLine());
-            for (int i = 0; i < n; i++)
-            {
-                Console.Write(fibo(i) + " ");
-            }
-        }
 
-        public static int fibo(int n)
-        {
-            if (n <= 1) return n;
-            return fibo(n - 1) + fibo(n - 2);
+            int a = 0;
+            int b = 1;
+
+            if (n >= 1)
+            {
+                Console.Write(a + " ");
+            }
+            if (n >= 2)
+            {
+                Console.Write(b + " ");
+            }
+
+            for (int i = 2; i < n; i++)
+            {
+                int c = a + b;
+                Console.Write(c + " ");
+                a = b;
+                b = c;
+            }
+            Console.WriteLine(); // Add a newline for cleaner output
         }
     }
 }
