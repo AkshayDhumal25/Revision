@@ -226,6 +226,42 @@
 
 
 // 8. WAP to print Fibonacci series without recursion.
+//using System;
+//namespace logicals
+//{
+//    class Program
+//    {
+//        public static void Main(string[] args)
+//        {
+//            Console.WriteLine("Enter the number of terms : ");
+//            int n = Convert.ToInt32(Console.ReadLine());
+
+//            int a = 0;
+//            int b = 1;
+
+//            if (n >= 1)
+//            {
+//                Console.Write(a + " ");
+//            }
+//            if (n >= 2)
+//            {
+//                Console.Write(b + " ");
+//            }
+
+//            for (int i = 2; i < n; i++)
+//            {
+//                int c = a + b;
+//                Console.Write(c + " ");
+//                a = b;
+//                b = c;
+//            }
+//            Console.WriteLine(); // Add a newline for cleaner output
+//        }
+//    }
+//}
+
+
+// 11. Find prime numbers from 1 ....n
 using System;
 namespace logicals
 {
@@ -233,29 +269,30 @@ namespace logicals
     {
         public static void Main(string[] args)
         {
-            Console.WriteLine("Enter the number of terms : ");
+            Console.WriteLine("Enter the number : ");
             int n = Convert.ToInt32(Console.ReadLine());
-
-            int a = 0;
-            int b = 1;
-
-            if (n >= 1)
+            for (int i = 0; i < n; i++)
             {
-                Console.Write(a + " ");
+                if (isPrime(i))
+                {
+                    Console.Write(i + " ");
+                }
             }
-            if (n >= 2)
-            {
-                Console.Write(b + " ");
-            }
+        }
+        public static bool isPrime(int n)
+        {
+            if (n <= 1) return false;
+            if (n == 2) return true;
+            if (n % 2 == 0) return false;
 
-            for (int i = 2; i < n; i++)
+            for (int i = 3; i * i < n; i += 2)
             {
-                int c = a + b;
-                Console.Write(c + " ");
-                a = b;
-                b = c;
+                if (n % i != 0)
+                {
+                    return false;
+                }
             }
-            Console.WriteLine(); // Add a newline for cleaner output
+            return true;
         }
     }
 }
